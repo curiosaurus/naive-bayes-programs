@@ -1,3 +1,4 @@
+import pprint 
 def get_freq(attributes,data,res=[]):
     freq={}
     nod=len(data)
@@ -25,8 +26,7 @@ def get_freq(attributes,data,res=[]):
             freq[attributes[i]+'_probablity_play']=freq[attributes[i]+'_play'] / yes
             freq['play_probablity_'+attributes[i]]=freq[attributes[i]+'_probablity_play']*proby/freq[attributes[i]+'_probablity']
     return freq
-def get_prob():
-    print("this is the get probability function")
+pp = pprint.PrettyPrinter()
 weather=['Sunny','Sunny' ,'Overcast','Rain','Rain'  ,'Rain'  ,'Overcast','Sunny','Sunny' ,'Rain'  ,'Sunny' ,'Overcast','Overcast','Rain']
 humidity=['High','High'  ,'High'    ,'High','Normal','Normal','Normal'  ,'High' ,'Normal','Normal','Normal','High'    ,'Normal'  ,'High']
 wind=['Weak'    ,'Strong','Weak'    ,'Weak','Weak'  ,'Strong','Strong'  ,'Weak' ,'Weak'  ,'Weak'  ,'Strong','Strong'  ,'Weak'    ,'Strong']
@@ -36,13 +36,13 @@ freq_outlook=get_freq(['Sunny','Overcast','Rain'],weather,play)
 freq_humid=get_freq(['High','Normal'],humidity,play)
 freq_wind=get_freq(['Weak','Strong'],wind,play)
 #freq_play=get_freq(['No','Yes'],play,play)
-print(freq_outlook)
+pp.pprint(freq_outlook)
 print('\n')
-print(freq_humid)
+pp.pprint(freq_humid)
 print('\n')
-print(freq_wind)
+pp.pprint(freq_wind)
 while True:
-    w=input('What is outlook \n Sunny or Rain or Overcast : ')
+    w=input('Please Enter the values as per the options and inputs are case sensitive\nWhat is outlook \n Sunny or Rain or Overcast : ')
     h=input('What is Humidity \n High or Normal : ')
     wi=input('How is wind\n Weak or Strong : ')
     likelihoody=0
